@@ -27,7 +27,7 @@ class Dot {
 	private val size = Random.nextDouble(Settings.Size.lower, Settings.Size.upper).toFloat()
 	
 	fun draw() {
-		val time = GLFW.glfwGetTime()
+		val time = System.currentTimeMillis() / 1000.0
 		val progress = ((time % 360) / (Settings.speedModifier / speed)).toRad()
 		
 		val x = distance * cos(progress)
