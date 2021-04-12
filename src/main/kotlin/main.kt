@@ -13,7 +13,7 @@ private var window: Long = 0
 private var dots = arrayListOf<Dot>()
 
 fun main() {
-
+	
 	init()
 	
 	for (i in 0 until Dot.Settings.dotAmount) {
@@ -66,7 +66,7 @@ fun loop() {
 		
 		dots.forEach { it.draw() }
 		
-		drawDot(0f, 0f, .1f, 20, 1f, 1f, 1f)
+		drawDot(0f, 0f, .1f, 50, 1f, 1f, 1f)
 		
 		glfwSwapBuffers(window)
 		// key events
@@ -79,7 +79,7 @@ fun drawDot(cx: Float, cy: Float, radius: Float, segments: Int, r: Float, g: Flo
 	
 	glBegin(GL_TRIANGLE_FAN)
 	glVertex2f(cx, cy)
-	for (i in 0 .. segments) {
+	for (i in 0..segments) {
 		glVertex2f(
 			(cx + radius * cos(i * (2 * PI) / segments)).toFloat(),
 			(cy + radius * sin(i * (2 * PI) / segments)).toFloat()
@@ -89,5 +89,5 @@ fun drawDot(cx: Float, cy: Float, radius: Float, segments: Int, r: Float, g: Flo
 }
 
 fun Double.toRad(): Double {
-	return this * 180/PI
+	return this * 180.0 / PI
 }
