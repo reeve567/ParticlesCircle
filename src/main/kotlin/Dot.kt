@@ -28,7 +28,7 @@ class Dot {
 	
 	fun draw() {
 		val time = System.currentTimeMillis() / 1000.0
-		val progress = ((time % 360) / (Settings.speedModifier / speed)).toRad()
+		val progress = ((time % 360) / (Settings.speedModifier / speed).toFloat()).toRad()
 		
 		val x = distance * cos(progress)
 		val y = distance * sin(progress)
